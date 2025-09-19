@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <title>LearniKo - Зворотній зв'язок</title>
+    </head>
+    <body>
+        <header>
+            <img src="cutted_logo.png" alt="Resource logo" width="140">
+            <br>
+            <h1>LearniKo</h1>
+        </header>
+        <nav>
+            <p>
+                <a href="main.html">
+                    Головна
+                </a>
+            </p>
+        </nav>
+        <main>
+            <h2 align="center">Зворотній зв’язок</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend><b>Персональна інформація</b></legend>
+                    <p>
+                        <label for="fullname">Прізвище та ім’я:</label><br>
+                        <input type="text" id="fullname" name="fullname" required size="40">
+                    </p>
+                    <p>
+                        <label for="email">E-mail:</label><br>
+                        <input type="email" id="email" name="email" required size="40">
+                    </p>
+                    <p>
+                        <label for="age">Вік:</label><br>
+                        <input type="number" id="age" name="age" min="1" max="120" required size="10">
+                    </p>
+<!--                    <p>-->
+<!--                        <label for="language">Оберіть мову:</label><br>-->
+<!--                        <select id="language" name="language" required>-->
+<!--                            <option value="">В роздумах</option>-->
+<!--                            <option value="Python">Python</option>-->
+<!--                            <option value="Java">Java</option>-->
+<!--                            <option value="PHP">PHP</option>-->
+<!--                            <option value="C++">C++</option>-->
+<!--                            <option value="Ruby">Ruby</option>-->
+<!--                            <option value="JavaScript">JavaScript</option>-->
+<!--                        </select>-->
+<!--                    </p>-->
+                    <p>
+                        <label>Чи вже вивчаєте мову *?</label><br>
+                        <input type="radio" id="prof" name="study_level" value="Так, я профі" required>
+                        <label for="prof">Так, я профі</label><br>
+
+                        <input type="radio" id="beginner" name="study_level" value="Так, але знаю початки">
+                        <label for="beginner">Так, але знаю початки</label><br>
+
+                        <input type="radio" id="plan" name="study_level" value="Планую">
+                        <label for="plan">Планую</label><br>
+
+                        <input type="radio" id="no" name="study_level" value="Ні">
+                        <label for="no">Ні</label>
+                    </p>
+                </fieldset>
+                <br>
+                <p>
+                    <label for="purpose">Мета зворотнього зв’язку:</label><br>
+                    <select id="purpose" name="purpose" required size="1">
+                        <option value="Співпраця">Співпраця</option>
+                        <option value="Скарга на неякісний контент">Скарга на неякісний контент</option>
+                        <option value="Пропозиція">Пропозиція</option>
+                        <option value="Наявність помилки">Наявність помилки</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="details">Напишіть детальніше, яку мову хочете обрати чи іншу примітку вашого запиту:</label><br>
+                    <textarea id="details" name="details" rows="6" cols="50" maxlength="500"
+                              placeholder="Максимум 500 символів" required></textarea>
+                    <br>
+                </p>
+                <p>
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">Я даю згоду на обробку моєї інформації</label>
+                </p>
+                <p>
+                    <button type="submit">Відправити</button>
+                    <button type="reset">Очистити</button>
+                </p>
+            </form>
+            <br>
+            <br>
+        </main>
+        <hr>
+        <footer>
+            <address>
+                <p>Адреса: вул. Прикладна, 12, Київ, Україна</p>
+                <p>Телефон: +380 50 123 45 67</p>
+                <p>Пошта: desandali@gmail.com</p>
+            </address>
+            <p align="center">© 2025 LearniKo</p>
+        </footer>
+    </body>
+</html>
+
