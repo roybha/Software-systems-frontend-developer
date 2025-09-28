@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="uk">
     <head>
+        <link rel="stylesheet" href="themes_style.css"> <!-- зовнішній CSS -->
+        <style>
+            /* Внутрішній CSS: лише 2 декоративних елементи */
+            h1 {
+                color: teal;
+            }
+            /* Внутрішній CSS — лише один елемент для виду */
+            h3 {
+                text-align: center;
+            }
+        </style>
         <meta charset="UTF-8">
         <title>LearniKo - Навчальні теми</title>
     </head>
     <body>
-        <header>
-            <img src="cutted_logo.png" alt="Resource logo" width="140">
-            <br>
-            <h1>LearniKo</h1>
-        </header>
-        <nav>
+        <nav class="highlight" id="site_nav">
             <p>
                 <a href="main.html">
                     Головна
                 </a>
             </p>
         </nav>
-        <nav>
-            <h2>Список доступних тем</h2>
+        <nav class="highlight" id="page_nav">
+            <h3>Список доступних тем</h3>
             <ul>
                 <li>
                     <a href="#python_theme">Pyhton</a>
@@ -40,14 +46,17 @@
                 </li>
             </ul>
         </nav>
-        <main>
+        <header class="header">
+            <img src="cutted_logo.png" alt="Resource logo" width="140">
+            <h1>LearniKo</h1>
+        </header>
+        <main class="content">
             <section>
                 <article>
                     <p>
-                        Не певен, яку мову обрати?.<a href="feedback.html">Напиши нам</a> і ми допоможемо тобі визначитися.
+                        Не певен, яку мову обрати?<a href="feedback.html">Напиши нам</a> і ми допоможемо тобі визначитися.
                     </p>
                     <h2 align="center">Детальний огляд навчальних тем</h2>
-                    <br>
                     <h3 id="python_theme">Python</h3>
                     <p><img src="https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png" width="200" alt="Python"></p>
                     <p><strong>Рівень:</strong> Початковий</p>
@@ -64,9 +73,7 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <hr>
                 <article>
-                    <br>
                     <h3 id="java_theme">Java</h3>
                     <p><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png" width="200" alt="Java"></p>
                     <p><strong>Рівень:</strong> Середній</p>
@@ -82,7 +89,6 @@
                         <li>Проєктні завдання</li>
                     </ul>
                 </article>
-                <hr>
                 <article>
                     <h3 id="js_theme">JavaScript</h3>
                     <p><img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" width="200" alt="JavaScript"></p>
@@ -100,7 +106,6 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <hr>
                 <article>
                     <h3 id="c++_theme">C++</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" width="200" alt="C++"></p>
@@ -117,7 +122,6 @@
                         <li>Практичні завдання високої складності</li>
                     </ul>
                 </article>
-                <hr>
                 <article>
                     <h3 id="ruby_theme">Ruby</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ruby_logo.png" width="200" alt="Ruby"></p>
@@ -134,7 +138,6 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <hr>
                 <article>
                     <h3 id="php_theme">PHP</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" width="200" alt="PHP"></p>
@@ -158,8 +161,7 @@
                 </article>
             </section>
         </main>
-        <hr>
-        <footer>
+        <footer class="footer">
             <address>
                 <p>Адреса: вул. Прикладна, 12, Київ, Україна</p>
                 <p>Телефон: +380 50 123 45 67</p>

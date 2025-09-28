@@ -1,0 +1,181 @@
+/* --- Базові стилі --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f0fa; /* світлий фон як у main_style */
+    color: #333;
+    display: grid;
+    grid-template-columns: 22% 56% 22%;
+    grid-template-rows:  2% auto 1fr auto;
+}
+
+/* --- Фіксований верхній блок з логотипом та назвою --- */
+header {
+    display: grid;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    grid-template-columns: auto auto;
+    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff); /* узгоджено з main_style */
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+header img {
+    grid-column: 1 / 2;
+    border: 2px solid #ccc;
+}
+header h1 {
+    grid-column: 2 / 2;
+}
+
+/* --- Навігація --- */
+.highlight { /* селектор класу */
+    display: grid;
+    position: sticky;
+    z-index: 5;
+    background-color: hsl(204, 68%, 67%);
+}
+
+
+/* Перший nav */
+#site_nav {
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    background-color: #559fd1;
+}
+
+#site_nav a[href] {
+    margin: 50em 0 0 0;
+}
+
+/* Другий nav */
+#page_nav {
+    display: grid;
+    grid-column: 2 / 4;
+    grid-row: 1 / 1;
+    position: sticky;
+    top: 0;
+}
+
+/* Список тем */
+#page_nav ul {
+    margin: -1.5em 0 1em 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6,16%); /* 6 колонок */
+    gap: 0.3rem;
+}
+
+#page_nav ul li {
+    background: #cfe7f7;
+    text-align: center;
+    border-radius: 5px;
+}
+
+nav a:visited {
+    color: #FFD700; /* насичено-жовтий для відвіданих посилань */
+}
+
+main{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    margin: 0 0 0 0;
+    padding: 0.2% 0 0 0;
+}
+/* --- Стилізація списку тем --- */
+article {
+    border-left: 3px dashed #88f; /* ліва пунктирна у відтінку main_style */
+    border-right: 3px solid #88f; /* права суцільна */
+    border-top: 2px solid #88f;
+    border-bottom: 2px solid #88f;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* --- Заголовки тем --- */
+article h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.3;
+    color: #4B0082;
+}
+
+/* --- Анімація зображень при наведенні --- */
+article img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+article img:hover {
+    filter: saturate(1.5); /* зростання насиченості на 150% */
+    transform: scale(1.05);
+}
+
+/* --- Селектори --- */
+h1 {
+    padding-left: 2em;
+    text-align: center;
+    color: navy;
+}
+/* селектор елементу */
+#python_theme,#java_theme, #js_theme,#ruby_theme,#c\+\+_theme,#php_theme { background-color: #DDE9F6FF; } /* селектор id, відтінок в палітрі main_style */
+/* Селектор атрибуту */
+a[href] {
+    color: #002f6c; /* темно-синій, гарно контрастує */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+a[href]:hover {
+    color: #000; /* чорний при наведенні */
+    text-decoration: none;
+}
+/* селектор атрибуту */
+img[src*="logo"] { border-radius: 10px; } /* селектор атрибут*=значення */
+button:hover { cursor: pointer; } /* псевдоклас */
+
+/* --- Комбінатори --- */
+main > section { padding: 1rem 1rem 0 1rem; } /* прямий нащадок - дочірні елемент */
+article p { line-height: 1.5; } /* усі нащадки */
+
+/* --- Кольори --- */
+h2,h3 { color: teal; } /* назва */
+
+/* --- Анімація --- */
+@keyframes fancyHover {
+    from { transform: translateX(0); opacity: 0.8; }
+    to { transform: translateX(2vw); opacity: 1; }
+}
+
+table:hover {
+    animation: fancyHover 0.5s ease-in-out forwards;
+}
+
+/* --- 2D трансформації --- */
+img:hover {
+    transform: rotate(1deg) scale(1.01);
+    transition: transform 0.4s ease-in-out;
+}
+
+footer {
+    grid-column: 1 / 4;
+    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff); /* узгоджено з main_style */
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0 0 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+address:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: box-shadow 2s ease;
+}
