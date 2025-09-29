@@ -179,3 +179,54 @@ address:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transition: box-shadow 2s ease;
 }
+
+/* --- Адаптивність для мобільних і планшетів --- */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    header, footer {
+        grid-column: 1 / 2;
+        text-align: center;
+        grid-template-columns: 1fr;
+    }
+
+    #site_nav, #page_nav {
+        grid-column: 1 / 2;
+        grid-row: auto;
+        position: relative;
+    }
+
+    #page_nav ul {
+        grid-template-columns: repeat(2, 48%);
+        gap: 0.5rem;
+        padding: 0;
+        margin: 0.5em 0;
+    }
+
+    main {
+        grid-column: 1 / 2;
+        padding: 1rem;
+    }
+
+    article {
+        padding: 0.5rem;
+        font-size: 0.95em;
+    }
+
+    article h3 {
+        font-size: 1.2em;
+    }
+
+    nav a[href] {
+        margin: 0.5em 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
