@@ -50,13 +50,16 @@
             <img src="cutted_logo.png" alt="Resource logo" width="140">
             <h1>LearniKo</h1>
         </header>
+        <div id="accordion-placeholder" class="accordion-container">
+            <h3>Теми</h3>
+        </div>
         <main class="content">
-            <section>
+            <input type="text" id="theme-search" placeholder="🔍 Пошук теми за назвою...">
+            <section id="themes_list">
                 <article>
-                    <p>
-                        Не певен, яку мову обрати?<a href="feedback.html">Напиши нам</a> і ми допоможемо тобі визначитися.
-                    </p>
-                    <h2 align="center">Детальний огляд навчальних тем</h2>
+                    <p>Не певен, яку мову обрати?<a href="feedback.html">Напиши нам</a> і ми допоможемо тобі визначитися.</p>
+                </article>
+                <article class="theme-item">
                     <h3 id="python_theme">Python</h3>
                     <p><img src="https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png" width="200" alt="Python"></p>
                     <p><strong>Рівень:</strong> Початковий</p>
@@ -73,7 +76,7 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <article>
+                <article class="theme-item">
                     <h3 id="java_theme">Java</h3>
                     <p><img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png" width="200" alt="Java"></p>
                     <p><strong>Рівень:</strong> Середній</p>
@@ -89,7 +92,7 @@
                         <li>Проєктні завдання</li>
                     </ul>
                 </article>
-                <article>
+                <article class="theme-item">
                     <h3 id="js_theme">JavaScript</h3>
                     <p><img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" width="200" alt="JavaScript"></p>
                     <p><strong>Рівень:</strong> Початковий</p>
@@ -106,7 +109,7 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <article>
+                <article class="theme-item">
                     <h3 id="c++_theme">C++</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" width="200" alt="C++"></p>
                     <p><strong>Рівень:</strong> Поглиблений</p>
@@ -122,7 +125,7 @@
                         <li>Практичні завдання високої складності</li>
                     </ul>
                 </article>
-                <article>
+                <article class="theme-item">
                     <h3 id="ruby_theme">Ruby</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ruby_logo.png" width="200" alt="Ruby"></p>
                     <p><strong>Рівень:</strong> Початковий</p>
@@ -138,7 +141,7 @@
                         <li>Міні-проєкти</li>
                     </ul>
                 </article>
-                <article>
+                <article class="theme-item">
                     <h3 id="php_theme">PHP</h3>
                     <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" width="200" alt="PHP"></p>
                     <p><strong>Рівень:</strong> Початковий</p>
@@ -169,5 +172,6 @@
             </address>
             <p align="center">© 2025 LearniKo</p>
         </footer>
+        <script src="themes.js" defer></script>
     </body>
 </html>

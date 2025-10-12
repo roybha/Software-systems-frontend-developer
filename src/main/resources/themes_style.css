@@ -7,7 +7,7 @@ body {
     color: #333;
     display: grid;
     grid-template-columns: 22% 56% 22%;
-    grid-template-rows:  2% auto 1fr auto;
+    grid-template-rows:  auto auto 1fr auto;
 }
 
 /* --- Фіксований верхній блок з логотипом та назвою --- */
@@ -66,7 +66,7 @@ header h1 {
 
 /* Список тем */
 #page_nav ul {
-    margin: -1.5em 0 1em 0;
+    margin: 0.5em 0 1em 0;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(6,16%); /* 6 колонок */
@@ -230,3 +230,64 @@ address:hover {
     }
 }
 
+/* 2 Завдання */
+input[id="theme-search"]{
+    display: block;
+    margin: 2px 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#no-results-message {
+    color: red;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    display: none; /* Початково приховано */
+    text-align: center;
+}
+
+/* 3 Завдання */
+.accordion-container {
+    /* Розміщення в лівій колонці під навігацією */
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background-color: #8888ff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    align-self: start;
+}
+
+.accordion-header {
+    background-color: #e6f0fa;
+    color: #002f6c;
+    cursor: pointer;
+    padding: 6px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-header:hover, .accordion-header.active {
+    background-color: #bbdef6;
+}
+
+.accordion-content {
+    /* Ключові властивості для JS-анімації */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding: 0 10px;
+    background-color: white;
+    font-size: 0.9em;
+}
+
+.accordion-content p {
+    padding-top: 5px;
+}
