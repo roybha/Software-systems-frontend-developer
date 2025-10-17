@@ -1,0 +1,259 @@
+/* Селектор атрибуту */
+a[href] {
+  color: #002f6c;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a[href]:hover {
+  color: #000; /* чорний при наведенні */
+  text-decoration: none;
+}
+
+/* Селектор атрибуту зі значенням */
+img[src*="logo"] {
+  margin: 6px 0 0 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+/* --- 2D трансформація --- */
+img:hover {
+  transform: rotate(1deg) scale(1.01);
+  transition: transform 0.4s ease-in-out;
+}
+
+/* --- Анімація --- */
+@keyframes fancyHover {
+  from {
+    transform: translateX(0);
+    background-color: #fff;
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(2vw);
+    background-color: #e0f7fa;
+    opacity: 1;
+  }
+}
+
+address:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: box-shadow 2s ease;
+}
+
+aside {
+  position: relative; /* --- POSITION 3 --- */
+  top: 2em;
+  background-color: #f0f0f0;
+  padding: 1.175rem;
+  margin-bottom: 2em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e6f0fa;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.global-aside {
+  top : 85em;
+  float: right;
+  width: 20%;
+}
+
+/* Селектор ID */
+#about {
+  border-top: 4px solid #88f;
+}
+
+#programming aside {
+  height: 17rem;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#programming img {
+  border-radius: 10%;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Селектор елементу */
+h1 {
+  padding-left: 2em;
+  text-align: center;
+  color: navy;
+}
+
+h2 {
+  color: teal; /* назва  кольору*/
+}
+
+footer {
+  position: absolute;
+  background: radial-gradient(circle at center,
+  #e6f0fa,
+  #c2dbf0,
+  #a0c4ff
+  );
+  color: #222;
+  padding: 2rem;
+  width: 96.65%;
+}
+
+main {
+  margin: 8.58rem 22% 0 22%;
+}
+
+main > section {
+  background: #fff;
+  border: 4px solid #88f;
+  padding: 1rem;
+}
+/* Селектор класу */
+.highlight {
+  position: sticky; /* --- POSITION 1 --- */
+  background-color: #71b7e3;
+}
+nav {
+  text-align: center;
+  top: 0;
+  padding: 5px 0;
+  z-index: 3;
+}
+
+nav a:visited {
+  color: #FFD700;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+  align-content: center;
+}
+
+nav ul li {
+  flex: 0 0 50%;
+  margin-bottom: 10px;
+}
+
+
+.student-emoji {
+  font-size: 6em;
+  text-align: center;
+}
+
+table:hover {
+  animation: fancyHover 0.5s ease-in-out forwards;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+table th {
+  color: rgb(70, 130, 180); /* RGB */
+}
+
+tfoot td {
+  color: hsl(240, 100%, 30%); /* HSL */
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* --- POSITION 2 --- */
+  top: 0;
+  left: 0;
+  padding-top: 3%;
+  width: 100%;
+  height: 21.8%;
+  max-height: 186px;
+  background: radial-gradient(circle at center,
+  #e6f0fa,
+  #c2dbf0,
+  #a0c4ff
+  );
+  color: #222;
+  z-index: 2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+article p {
+  line-height: 1.6;
+}
+
+/* Завдання 1 */
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#learning-rules-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 12px;
+  z-index: 1001;
+  max-width: 500px;
+  text-align: left;
+  font-family: inherit;
+  overflow: hidden;
+  transition: background 0.5s, color 0.5s;
+}
+
+#close-modal-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#modal-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#learning-rules-modal {
+  background: white;
+  color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+#learning-rules-modal h3 {
+  color: navy;
+  text-align: center;
+}
+
+#close-modal-btn {
+  background-color: #559fd1;
+}
+
+/* Завдання 5 */
+

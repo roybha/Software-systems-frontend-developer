@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetSection = document.getElementById('goal-article');
     if (targetSection) {
         let focusTimer = null;
-        const focusDuration = 30000; // 30 секунд
+        const focusDuration = 3000; // 30 секунд
 
         function closeModal() {
             const overlay = document.getElementById('modal-overlay');

@@ -1,0 +1,234 @@
+a[href] {
+    color: #002f6c; /* темно-синій, гарно контрастує */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+a[href]:hover {
+    color: #000; /* чорний при наведенні */
+    text-decoration: none;
+}
+
+/* === Базові стилі === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f0fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* === Шапка === */
+header {
+    display: flex;
+    position: relative;
+    margin: 0 0 0 0;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header img {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: navy;
+    padding: 0 0 0 2em;
+}
+
+/* === Навігація === */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #559fd1;
+    text-align: center;
+    padding: 0.5rem;
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:visited {
+    color: #FFD700;
+}
+
+nav p > a {
+    font-style: italic;
+}
+
+/* === Основний контейнер форми === */
+main {
+    max-width: 800px;
+    margin: 1rem auto 0.5rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #88f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* === Заголовки === */
+h2 {
+    text-align: center;
+    color: teal;
+}
+
+/* === Стилізація форми з Flex === */
+form {
+    display: flex;                  /* FlexBox */
+    flex-flow: column nowrap;       /* вертикальний напрямок, без переносу */
+    justify-content: flex-start;    /* елементи починаються зверху і йдуть вздовж основної вісі*/
+    align-items: stretch;           /* елементи займають всю ширину */
+    gap: 1.5rem;                    /* відстань між полями */
+}
+
+
+/* === Групи елементів форми === */
+form fieldset,
+form p {
+    display: block;
+    flex-direction: column; /* вертикально всередині групи */
+    gap: 0.5rem;            /* невеликий відступ між label та input */
+    order: 0;               /* можна змінювати порядок при потребі */
+}
+
+form p input[type="radio"],
+form p input[type="checkbox"]{
+    align-self: flex-end;
+    vertical-align: middle; /* вирівнювання по центру label */ /* вирівнювання зліва */
+}
+
+fieldset {
+    padding: 1rem;
+    background-color: #f0f8ff;
+    border: 2px dashed #88f;
+    border-radius: 5px;
+}
+
+/* === Мітки та поля вводу === */
+label {
+    font-weight: bold;
+    color: #002f6c;
+}
+
+input[type="text"],
+input[type="*mail"],
+input[type="number"],
+textarea,
+select {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9fcff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #559fd1;
+    outline: none;
+    background-color: #fff;
+}
+
+/* === Кнопки === */
+button {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #71b7e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #559fd1;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* === Footer === */
+footer {
+    padding: 1rem 2rem;
+    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff);
+    text-align: center;
+    color: #333;
+}
+
+address {
+    text-align: left;
+    font-style: normal;
+    line-height: 1.4;
+}
+
+address:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 2s ease;
+}
+
+/* === Анімація текстового поля при фокусі === */
+textarea:focus {
+    animation: highlight 0.8s ease-in-out forwards;
+}
+
+@keyframes highlight {
+    from {
+        background-color: #0f77df;
+    }
+    to {
+        background-color: #FDFDFDFF;
+    }
+}
+
+/* === 2D трансформація кнопки === */
+button:active {
+    transform: scale(0.98) rotate(-0.5deg);
+}
+
+/* 4 Завдання */
+#details-wrapper {
+    position: relative;
+}
+
+#detail-tooltip {
+    position: absolute;
+    background-color: #002f6c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 20;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    /* transition для обох властивостей, щоб уникнути різких стрибків */
+    transition: opacity 1.5s, visibility 1.5s;
+}
+
+.tooltip-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tooltip-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#details.details-active {
+    background-color: #f0f8ff;
+    border: 1px solid #007bff;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}

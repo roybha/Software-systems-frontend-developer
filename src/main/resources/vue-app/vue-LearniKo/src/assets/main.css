@@ -1,0 +1,63 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /*background-color: #f2f7fc;*/
+}
+
+
+body.dark-mode #modal-overlay {
+    background: rgba(0, 0, 0, 0.95); /* Темніший оверлей */
+}
+
+body.dark-mode #learning-rules-modal {
+    background: #3a3a3a;
+    color: #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode #learning-rules-modal h3 {
+    /* У темному режимі змінюємо колір заголовка на світліший */
+    color: #a0c4ff;
+}
+
+body.dark-mode #close-modal-btn {
+    background-color: #315d7e;
+}
+
+body.dark-mode {
+    /* Змінюємо кольори на темніші (приблизно на 50% від #e6f0fa) */
+    background-color: #4f5f6f;
+    color: #e0e0e0; /* Світлий текст */
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    /* Темніший градієнт */
+    background: radial-gradient(circle at center, #4f5f6f, #33404c, #2a343d);
+    color: #f0f0f0;
+}
+
+body.dark-mode nav.highlight {
+    background-color: #315d7e;
+}
+
+body.dark-mode main > section {
+    /* Темніший фон секцій */
+    background: #3a3a3a;
+    border: 4px solid #6688ff;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #c0c0c0;
+}
+
+body.dark-mode aside {
+    background-color: #4a4a4a;
+    color: #cccccc;
+}
+
+body.dark-mode a[href] {
+    color: #a0c4ff; /* Світлі посилання */
+}
