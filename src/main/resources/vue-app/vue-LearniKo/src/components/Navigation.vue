@@ -50,8 +50,6 @@
 import {useRoute} from "vue-router";
 const route = useRoute();
 </script>
-<script setup lang="ts">
-</script>
 <style>
 .center {
   display: flex;
@@ -67,7 +65,7 @@ nav {
   position: sticky;
   text-align: center;
   top: 0;
-  padding: 5px 0;
+  padding: 5px 0 0 0;
   z-index: 3;
 }
 .themes-nav {

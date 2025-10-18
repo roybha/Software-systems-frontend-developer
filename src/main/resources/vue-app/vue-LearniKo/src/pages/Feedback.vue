@@ -45,10 +45,10 @@
           <option value="Наявність помилки">Наявність помилки</option>
         </select>
       </p>
-      <p id="details-wrapper">
+      <p id="details-wrapper" ref="wrapperRef">
         <label for="details">Напишіть детальніше, яку мову хочете обрати чи іншу примітку вашого запиту:</label>
         <textarea id="details" name="details" rows="6" cols="50" maxlength="500"
-                  placeholder="Максимум 500 символів" required></textarea>
+                  placeholder="Максимум 500 символів" required ref="detailFieldRef"></textarea>
       </p>
       <p>
         <input type="checkbox" id="consent" name="consent" required>
@@ -60,16 +60,81 @@
       </p>
     </form>
   </main>
-  <footer>
-    <address>
-      <p>Адреса: вул. Прикладна, 12, Київ, Україна</p>
-      <p>Телефон: +380 50 123 45 67</p>
-      <p>Пошта: desandali@gmail.com</p>
-    </address>
-    <p align="center">© 2025 LearniKo</p>
-  </footer>
+  <Footer />
+  <teleport to="body">
+    <div
+        v-if="isTooltipVisible"
+        id="detail-tooltip"
+        :style="tooltipPosition"
+        class="tooltip-visible"
+    >
+      Ваша думка для нас важлива! Конкретизуйте мету звернення, будь ласка.
+    </div>
+  </teleport>
 </template>
 <script setup lang="ts">
 import Navigation from "../components/Navigation.vue";
+import Footer from "../components/Footer.vue";
+import { ref, onMounted, reactive } from 'vue';
+
+// 1. Рефи для доступу до DOM-елементів
+const detailFieldRef = ref<HTMLTextAreaElement | null>(null);
+const wrapperRef = ref<HTMLParagraphElement | null>(null);
+
+// 2. Реактивний стан для керування видимістю підказки
+const isTooltipVisible = ref(false);
+
+// 3. Реактивний об'єкт для динамічного позиціонування підказки
+// (Позиціонування залишається в JS, оскільки залежить від розмірів DOM-елемента)
+const tooltipPosition = reactive({
+  top: '0px',
+  left: '0px',
+});
+
+// --- Обробники подій ---
+
+function handleMouseEnter() {
+  if (detailFieldRef.value) {
+    // А. Динамічна зміна стилів поля через клас (або Vue v-bind:class)
+    detailFieldRef.value.classList.add('details-active');
+
+    // В. Розрахунок та встановлення позиції
+    // Ми робимо це тут, оскільки розміри потрібні лише при наведенні
+    const field = detailFieldRef.value;
+
+    // Оскільки підказка буде позиціонована абсолютно відносно body/viewport,
+    // використовуємо getBoundingClientRect() для отримання позиції у viewport
+    const rect = field.getBoundingClientRect();
+
+    // Встановлюємо реактивні властивості, щоб Vue оновив стилі
+    // Додаємо скрол до top, якщо вікно прокручено (для fixed/absolute позиціонування відносно document)
+    tooltipPosition.top = (rect.top + window.scrollY) + 'px';
+    tooltipPosition.left = (rect.left + rect.width + 15) + 'px';
+
+    // Б. Показ підказки
+    isTooltipVisible.value = true;
+  }
+}
+
+function handleMouseLeave() {
+  if (detailFieldRef.value) {
+    // А. Відновлення стилів
+    detailFieldRef.value.classList.remove('details-active');
+  }
+  // Б. Приховування підказки
+  isTooltipVisible.value = false;
+}
+
+// --- Життєвий цикл ---
+onMounted(() => {
+  // Додаємо обробники подій лише після монтування компонента
+  if (detailFieldRef.value) {
+    detailFieldRef.value.addEventListener('mouseenter', handleMouseEnter);
+    detailFieldRef.value.addEventListener('mouseleave', handleMouseLeave);
+  }
+});
 </script>
 <style scoped src="../assets/feedback_style.css"></style>
+<style scoped>
+
+</style>

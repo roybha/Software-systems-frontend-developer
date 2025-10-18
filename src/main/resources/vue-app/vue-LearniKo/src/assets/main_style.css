@@ -98,18 +98,6 @@ h2 {
   color: teal; /* назва  кольору*/
 }
 
-footer {
-  position: absolute;
-  background: radial-gradient(circle at center,
-  #e6f0fa,
-  #c2dbf0,
-  #a0c4ff
-  );
-  color: #222;
-  padding: 2rem;
-  width: 96.65%;
-}
-
 main {
   margin: 8.58rem 22% 0 22%;
 }
@@ -223,7 +211,7 @@ article p {
   transition: background 0.5s, color 0.5s;
 }
 
-#close-modal-btn {
+ #close-modal-btn {
   display: block;
   width: 100%;
   padding: 10px;
@@ -254,6 +242,4 @@ article p {
 #close-modal-btn {
   background-color: #559fd1;
 }
-
-/* Завдання 5 */
 

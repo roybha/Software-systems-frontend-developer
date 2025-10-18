@@ -38,8 +38,16 @@ body.dark-mode footer {
     color: #f0f0f0;
 }
 
-body.dark-mode nav.highlight {
+body.dark-mode nav.highlight{
     background-color: #315d7e;
+}
+
+body.dark-mode #page_nav{
+    background-color: #4a86b9;
+}
+
+body.dark-mode nav ul.themes-nav li a{
+    color: #4B0082;
 }
 
 body.dark-mode main > section {
@@ -49,10 +57,18 @@ body.dark-mode main > section {
 }
 
 body.dark-mode h1,
-body.dark-mode h2 {
+body.dark-mode h2,
+body.dark-mode h3{
     color: #c0c0c0;
 }
-
+body.dark-mode #python_theme,
+body.dark-mode #php_theme,
+body.dark-mode #java_theme,
+body.dark-mode #c\+\+_theme,
+body.dark-mode #ruby_theme,
+body.dark-mode #js_theme{
+    background-color: #4a4a4a;
+}
 body.dark-mode aside {
     background-color: #4a4a4a;
     color: #cccccc;
@@ -60,4 +76,82 @@ body.dark-mode aside {
 
 body.dark-mode a[href] {
     color: #a0c4ff; /* Світлі посилання */
+}
+
+body.dark-mode a[href]:hover {
+    color: #c0c0c0; /* Сірий при наведенні */
+}
+
+/* === Dark Mode для основного контейнера форми (main) === */
+body.dark-mode main {
+    background-color: #333333; /* Темний фон контейнера, добре видно на #4f5f6f */
+    border-color: #6688ff;      /* Світла рамка */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* === Dark Mode для груп елементів форми (fieldset) === */
+body.dark-mode fieldset {
+    background-color: #2c2c2c; /* Темніший фон для fieldset, щоб відрізнявся від main */
+    border-color: #6688ff;      /* Контрастна рамка */
+}
+
+/* === Dark Mode для міток (label) === */
+body.dark-mode label {
+    color: #f0f0f0; /* Світлий текст для міток */
+}
+
+/* === Dark Mode для полів вводу (input, textarea, select) === */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="number"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #444444; /* Темний фон поля вводу */
+    color: #e0e0e0;             /* Світлий текст, що вводиться */
+    border: 1px solid #666666; /* Світліша рамка */
+}
+
+/* === Dark Mode: Фокус на полі вводу === */
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #a0c4ff; /* Яскравий, видимий колір фокуса */
+    background-color: #333333; /* Темніший фон, щоб виділити фокус */
+}
+
+/* === Dark Mode для кнопок === */
+body.dark-mode button {
+    background-color: #315d7e; /* Темно-синій */
+    color: #ffffff;
+    width: 100%;
+}
+
+body.dark-mode button:hover {
+    background-color: #4a86b9; /* Світліший синій при наведенні */
+    transform: scale(1.03);
+}
+
+/* === Dark Mode: Вирівнювання анімації фокусу textarea для темного режиму === */
+body.dark-mode textarea:focus {
+    /* Тут може знадобитися окрема @keyframes, якщо ви не хочете,
+       щоб колір фокусу залишався білим (#FDFDFDFF) у кінці анімації.
+       Я припускаю, що вам потрібен темний кінцевий колір.
+    */
+    animation-name: highlight-dark;
+}
+
+@keyframes highlight-dark {
+    from {
+        background-color: #0f77df;
+    }
+    to {
+        background-color: #333333; /* Кінцевий колір фону поля вводу в dark mode */
+    }
+}
+
+/* Перевизначення стилів активного стану textarea в Dark Mode */
+body.dark-mode #details.details-active {
+    background-color: #4f5f6f; /* Трохи світліший темний фон для виділення */
+    border: 1px solid #a0c4ff;  /* Яскраво-блакитний (як ваш фокус) */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); /* Більш виразна тінь */
 }

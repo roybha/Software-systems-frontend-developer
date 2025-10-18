@@ -26,7 +26,7 @@
           Ми стараємося подати матеріал у зрозумілій формі, дозволяючи поступово вивчати нові теми і розширювати власний кругозір у цій галузі.
         </em>
       </article>
-      <article id="goal-article">
+      <article id="goal-article" ref="goalArticleRef">
         <h2>Мета</h2>
         <p>
           Надати можливості для навчання, що допоможуть початківцям засвоїти основи різних мов програмування та застосовувати отримані знання в подальшій власній практиці.
@@ -178,18 +178,25 @@
       </article>
     </section>
   </main>
-  <footer>
-    <address>
-      <p>Адреса: вул. Прикладна, 12, Київ, Україна</p>
-      <p>Телефон: +380 50 123 45 67</p>
-      <p>Пошта: desandali@gmail.com</p>
-    </address>
-    <p align="center">© 2025 LearniKo</p>
-  </footer>
+  <teleport to="body">
+    <div v-if="isModalVisible" id="modal-overlay" @click="closeModal"></div>
+    <div v-if="isModalVisible" id="learning-rules-modal">
+      <h3> Золоті правила навчання</h3>
+      <p>1. <b>Декомпозиція:</b> Розбивайте складні завдання на маленькі, керовані кроки.</p>
+      <p>2. <b>Активний пошук:</b> Використовуйте документацію, але завжди намагайтеся зрозуміти чому.</p>
+      <p>3. <b>Систематичність:</b> Кожен день потроху краще, ніж один марафон.</p>
+      <p>4. <b>Коментарі:</b> Пишіть зрозумілий код, наче пояснюєте його собі через півроку.</p>
+      <button id="close-modal-btn" @click="closeModal">
+        Зрозуміло
+      </button>
+    </div>
+  </teleport>
+  <Footer />
 </template>
 <script setup>
 import Navigation from "../components/Navigation.vue";
-import {onMounted} from "vue";
+import {onBeforeUnmount,onMounted,ref } from "vue";
+import Footer from "../components/Footer.vue";
 function setNightMode() {
   const currentHour = new Date().getHours();
   // Перевіряємо, чи година в проміжку [21:00, 23:59] АБО [00:00, 05:59]
@@ -201,6 +208,54 @@ function setNightMode() {
 }
 onMounted(setNightMode);
 
+// Реактивна змінна для керування видимістю модалки
+const isModalVisible = ref(false);
+// Реф для прив'язки до елемента DOM (розділ "Мета")
+const goalArticleRef = ref(null);
+let focusTimer = null;
+const focusDuration = 3000; // 30 секунд
 
+// --- Логіка модального вікна ---
+
+function showModal() {
+  isModalVisible.value = true;
+  document.body.style.overflow = 'hidden'; // Блокуємо скрол
+}
+
+function closeModal() {
+  isModalVisible.value = false;
+  document.body.style.overflow = ''; // Відновлюємо скрол
+}
+
+function handleMouseEnter() {
+  // Запуск таймера при наведенні
+  focusTimer = setTimeout(showModal, focusDuration);
+}
+
+function handleMouseLeave() {
+  // Скидання таймера при знятті наведення
+  clearTimeout(focusTimer);
+}
+
+// --- Хуки життєвого циклу Vue ---
+
+onMounted(() => {
+  setNightMode();
+
+  // Додаємо обробники подій до елемента, коли компонент змонтовано
+  if (goalArticleRef.value) {
+    goalArticleRef.value.addEventListener('mouseenter', handleMouseEnter);
+    goalArticleRef.value.addEventListener('mouseleave', handleMouseLeave);
+  }
+});
+
+// Очистка таймера та обробників подій перед знищенням компонента
+onBeforeUnmount(() => {
+  clearTimeout(focusTimer);
+  if (goalArticleRef.value) {
+    goalArticleRef.value.removeEventListener('mouseenter', handleMouseEnter);
+    goalArticleRef.value.removeEventListener('mouseleave', handleMouseLeave);
+  }
+});
 </script>
 <style scoped src="../assets/main_style.css"></style>

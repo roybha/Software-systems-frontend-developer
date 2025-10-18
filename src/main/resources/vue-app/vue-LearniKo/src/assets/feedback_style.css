@@ -19,8 +19,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
-/* === Шапка === */
+    /* === Шапка === */
 header {
     display: flex;
     position: relative;
@@ -92,7 +91,6 @@ form {
     gap: 1.5rem;                    /* відстань між полями */
 }
 
-
 /* === Групи елементів форми === */
 form fieldset,
 form p {
@@ -122,7 +120,7 @@ label {
 }
 
 input[type="text"],
-input[type="*mail"],
+input[type="email"],
 input[type="number"],
 textarea,
 select {
@@ -144,10 +142,12 @@ select:focus {
 /* === Кнопки === */
 button {
     flex: 1;
+    margin: 0.65em 0;
     padding: 0.75rem;
     background-color: #71b7e3;
     color: white;
     border: none;
+    width: 100%;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -157,25 +157,6 @@ button:hover {
     background-color: #559fd1;
     transform: scale(1.05);
     cursor: pointer;
-}
-
-/* === Footer === */
-footer {
-    padding: 1rem 2rem;
-    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff);
-    text-align: center;
-    color: #333;
-}
-
-address {
-    text-align: left;
-    font-style: normal;
-    line-height: 1.4;
-}
-
-address:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 2s ease;
 }
 
 /* === Анімація текстового поля при фокусі === */
