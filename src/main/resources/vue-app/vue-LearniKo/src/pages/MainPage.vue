@@ -3,7 +3,6 @@
     <img src="../assets/cutted_logo.png" alt="Resource logo" width="140">
     <h1>LearniKo</h1>
   </header>
- <Navigation />
   <aside class="global-aside">
     <h3 align="right">Порада дня</h3>
     <p align="right">
@@ -26,12 +25,11 @@
           Ми стараємося подати матеріал у зрозумілій формі, дозволяючи поступово вивчати нові теми і розширювати власний кругозір у цій галузі.
         </em>
       </article>
-      <article id="goal-article" ref="goalArticleRef">
+      <article id="goal-article" @mouseleave="handleMouseLeave" @mouseenter="handleMouseEnter">
         <h2>Мета</h2>
         <p>
           Надати можливості для навчання, що допоможуть початківцям засвоїти основи різних мов програмування та застосовувати отримані знання в подальшій власній практиці.
         </p>
-        <!-- Вставка емодзі -->
         <p class="student-emoji">👨‍🎓 👩‍🎓</p>
         <aside>
           <i>
@@ -191,71 +189,37 @@
       </button>
     </div>
   </teleport>
-  <Footer />
 </template>
 <script setup>
-import Navigation from "../components/Navigation.vue";
-import {onBeforeUnmount,onMounted,ref } from "vue";
-import Footer from "../components/Footer.vue";
-function setNightMode() {
-  const currentHour = new Date().getHours();
-  // Перевіряємо, чи година в проміжку [21:00, 23:59] АБО [00:00, 05:59]
-  const isNightTime = currentHour >= 21 || currentHour < 6;
-
-  if (isNightTime) {
-    document.body.classList.add('dark-mode');
-  }
-}
-onMounted(setNightMode);
-
-// Реактивна змінна для керування видимістю модалки
+import {onBeforeUnmount,ref } from "vue";
+import { useHead } from '@vueuse/head'
+useHead({
+  title: 'LearniKo - Головна'
+})
 const isModalVisible = ref(false);
-// Реф для прив'язки до елемента DOM (розділ "Мета")
-const goalArticleRef = ref(null);
 let focusTimer = null;
-const focusDuration = 3000; // 30 секунд
-
-// --- Логіка модального вікна ---
+const focusDuration = 30000;
 
 function showModal() {
   isModalVisible.value = true;
-  document.body.style.overflow = 'hidden'; // Блокуємо скрол
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   isModalVisible.value = false;
-  document.body.style.overflow = ''; // Відновлюємо скрол
+  document.body.style.overflow = '';
 }
 
 function handleMouseEnter() {
-  // Запуск таймера при наведенні
   focusTimer = setTimeout(showModal, focusDuration);
 }
 
 function handleMouseLeave() {
-  // Скидання таймера при знятті наведення
   clearTimeout(focusTimer);
 }
 
-// --- Хуки життєвого циклу Vue ---
-
-onMounted(() => {
-  setNightMode();
-
-  // Додаємо обробники подій до елемента, коли компонент змонтовано
-  if (goalArticleRef.value) {
-    goalArticleRef.value.addEventListener('mouseenter', handleMouseEnter);
-    goalArticleRef.value.addEventListener('mouseleave', handleMouseLeave);
-  }
-});
-
-// Очистка таймера та обробників подій перед знищенням компонента
 onBeforeUnmount(() => {
   clearTimeout(focusTimer);
-  if (goalArticleRef.value) {
-    goalArticleRef.value.removeEventListener('mouseenter', handleMouseEnter);
-    goalArticleRef.value.removeEventListener('mouseleave', handleMouseLeave);
-  }
 });
 </script>
 <style scoped src="../assets/main_style.css"></style>

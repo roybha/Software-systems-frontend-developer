@@ -1,8 +1,6 @@
 <script setup>
 </script>
-
 <template>
-
   <footer>
     <address>
       <p>Адреса: вул. Прикладна, 12, Київ, Україна</p>

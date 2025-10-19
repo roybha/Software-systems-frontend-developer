@@ -1,6 +1,6 @@
 <template>
   <nav class="highlight">
-    <ul v-if="route.name == 'Main'">
+    <ul v-if="route.name === 'Main'">
       <li>
         <a href="#about">Про нас</a>
       </li>
@@ -20,8 +20,7 @@
     </ul>
     <template v-else>
       <p><router-link :to="{name: 'Main'}">Головна</router-link></p>
-      <nav v-if="route.name == 'Themes'" class="highlight" id="page_nav">
-<!--        <h3>Список доступних тем</h3>-->
+      <nav v-if="route.name === 'Themes'" class="highlight" id="page_nav">
         <ul class="themes-nav">
           <li>
             <a href="#python_theme">Pyhton</a>
@@ -56,10 +55,15 @@ const route = useRoute();
   justify-content: center;
   align-items: center;
 }
-/* Селектор класу */
+
 .highlight {
-  position: sticky; /* --- POSITION 1 --- */
+  position: sticky;
   background-color: #559fd1;
+}
+
+.highlight p{
+  margin-bottom: 0;
+  padding-bottom: 20px;
 }
 nav {
   position: sticky;

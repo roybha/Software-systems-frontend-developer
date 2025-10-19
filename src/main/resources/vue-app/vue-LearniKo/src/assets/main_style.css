@@ -1,4 +1,3 @@
-/* Селектор атрибуту */
 a[href] {
   color: #002f6c;
   font-weight: bold;
@@ -7,24 +6,21 @@ a[href] {
 }
 
 a[href]:hover {
-  color: #000; /* чорний при наведенні */
+  color: #000;
   text-decoration: none;
 }
 
-/* Селектор атрибуту зі значенням */
 img[src*="logo"] {
   margin: 6px 0 0 0;
   border: 2px solid #ccc;
   border-radius: 10px;
 }
 
-/* --- 2D трансформація --- */
 img:hover {
   transform: rotate(1deg) scale(1.01);
   transition: transform 0.4s ease-in-out;
 }
 
-/* --- Анімація --- */
 @keyframes fancyHover {
   from {
     transform: translateX(0);
@@ -44,7 +40,7 @@ address:hover {
 }
 
 aside {
-  position: relative; /* --- POSITION 3 --- */
+  position: relative;
   top: 2em;
   background-color: #f0f0f0;
   padding: 1.175rem;
@@ -54,9 +50,6 @@ aside {
 body {
   margin: 0;
   padding: 0;
-  background-color: #e6f0fa;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .global-aside {
   top : 85em;
@@ -64,7 +57,6 @@ body {
   width: 20%;
 }
 
-/* Селектор ID */
 #about {
   border-top: 4px solid #88f;
 }
@@ -87,7 +79,6 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-/* Селектор елементу */
 h1 {
   padding-left: 2em;
   text-align: center;
@@ -95,7 +86,7 @@ h1 {
 }
 
 h2 {
-  color: teal; /* назва  кольору*/
+  color: teal;
 }
 
 main {
@@ -107,9 +98,9 @@ main > section {
   border: 4px solid #88f;
   padding: 1rem;
 }
-/* Селектор класу */
+
 .highlight {
-  position: sticky; /* --- POSITION 1 --- */
+  position: sticky;
   background-color: #71b7e3;
 }
 nav {
@@ -152,11 +143,11 @@ table:hover {
 }
 
 table th {
-  color: rgb(70, 130, 180); /* RGB */
+  color: rgb(70, 130, 180);
 }
 
 tfoot td {
-  color: hsl(240, 100%, 30%); /* HSL */
+  color: hsl(240, 100%, 30%);
 }
 
 header {
@@ -164,7 +155,7 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: absolute; /* --- POSITION 2 --- */
+  position: absolute;
   top: 0;
   left: 0;
   padding-top: 3%;
@@ -186,7 +177,6 @@ article p {
   line-height: 1.6;
 }
 
-/* Завдання 1 */
 #modal-overlay {
   position: fixed;
   top: 0;

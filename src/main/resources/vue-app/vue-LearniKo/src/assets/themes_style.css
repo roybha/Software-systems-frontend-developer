@@ -1,17 +1,9 @@
-/* --- Базові стилі --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e6f0fa; /* світлий фон як у main_style */
-    color: #333;
-}
-
-/* --- Фіксований верхній блок з логотипом та назвою --- */
 header {
     display: grid;
     grid-column: 1 / 4;
     grid-row: 2 / 3;
     grid-template-columns: auto auto;
-    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff); /* узгоджено з main_style */
+    background: radial-gradient(circle at center, #e6f0fa, #c2dbf0, #a0c4ff);
     align-items: center;
     justify-content: center;
     padding: 1rem;
@@ -26,16 +18,8 @@ header h1 {
     grid-column: 2 / 2;
 }
 
-/* --- Навігація --- */
-.highlight { /* селектор класу */
-    /*display: grid;*/
-    /*position: sticky;*/
-    /*z-index: 5;*/
-    /*background-color: hsl(204, 68%, 67%);*/
-}
-
 nav a:visited {
-    color: #FFD700; /* насичено-жовтий для відвіданих посилань */
+    color: #FFD700;
 }
 
 main{
@@ -44,16 +28,15 @@ main{
     margin: 0 0 0 0;
     padding: 0.2% 0 0 0;
 }
-/* --- Стилізація списку тем --- */
+
 article {
-    border-left: 3px dashed #88f; /* ліва пунктирна у відтінку main_style */
-    border-right: 3px solid #88f; /* права суцільна */
+    border-left: 3px dashed #88f;
+    border-right: 3px solid #88f;
     border-top: 2px solid #88f;
     border-bottom: 2px solid #88f;
     padding: 1rem;
 }
 
-/* --- Заголовки тем --- */
 article h3 {
     font-size: 1.5em;
     font-weight: bold;
@@ -62,48 +45,45 @@ article h3 {
     color: #4B0082;
 }
 
-/* --- Анімація зображень при наведенні --- */
 article img {
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 article img:hover {
-    filter: saturate(1.5); /* зростання насиченості на 150% */
+    filter: saturate(1.5);
     transform: scale(1.05);
 }
 
-/* --- Селектори --- */
 h1 {
     padding-left: 2em;
     text-align: center;
     color: navy;
 }
-/* селектор елементу */
-#python_theme,#java_theme, #js_theme,#ruby_theme,#c\+\+_theme,#php_theme { background-color: #DDE9F6FF; } /* селектор id, відтінок в палітрі main_style */
-/* Селектор атрибуту */
+
+#python_theme,#java_theme, #js_theme,#ruby_theme,#c\+\+_theme,#php_theme { background-color: #DDE9F6FF; }
+
 a[href] {
-    color: #002f6c; /* темно-синій, гарно контрастує */
+    color: #002f6c;
     font-weight: bold;
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 a[href]:hover {
-    color: #000; /* чорний при наведенні */
+    color: #000;
     text-decoration: none;
 }
-/* селектор атрибуту */
-img[src*="logo"] { border-radius: 10px; } /* селектор атрибут*=значення */
-button:hover { cursor: pointer; } /* псевдоклас */
 
-/* --- Комбінатори --- */
-main > section { padding: 1rem 1rem 0 1rem; } /* прямий нащадок - дочірні елемент */
-article p { line-height: 1.5; } /* усі нащадки */
+img[src*="logo"] { border-radius: 10px; }
+button:hover { cursor: pointer; }
 
-/* --- Кольори --- */
-h2,h3 { color: teal; } /* назва */
 
-/* --- Анімація --- */
+main > section { padding: 1rem 1rem 0 1rem; }
+article p { line-height: 1.5; }
+
+
+h2,h3 { color: teal; }
+
 @keyframes fancyHover {
     from { transform: translateX(0); opacity: 0.8; }
     to { transform: translateX(2vw); opacity: 1; }
@@ -113,7 +93,6 @@ table:hover {
     animation: fancyHover 0.5s ease-in-out forwards;
 }
 
-/* --- 2D трансформації --- */
 img:hover {
     transform: rotate(1deg) scale(1.01);
     transition: transform 0.4s ease-in-out;
@@ -169,11 +148,10 @@ img:hover {
     }
 }
 
-/* 2 Завдання */
 main input[id="theme-search"]{
     justify-content: center;
-    margin: 4px 20px; /* 50px зліва і справа */
-    width: calc(100% - 40px); /* компенсує відступи, щоб не виходило за межі */
+    margin: 4px 20px;
+    width: calc(100% - 40px);
     padding: 10px 0 10px 0;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -187,7 +165,6 @@ main input[id="theme-search"]{
     text-align: center;
 }
 
-/* 3 Завдання */
 main div.accordion-container {
     margin:  4px auto;
     background-color: #8888ff;

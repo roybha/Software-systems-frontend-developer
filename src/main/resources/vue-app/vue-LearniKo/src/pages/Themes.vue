@@ -1,6 +1,4 @@
 <template>
-  <Navigation/>
-
   <header class="header">
     <img src="../assets/cutted_logo.png" alt="Resource logo" width="140">
     <h1>LearniKo</h1>
@@ -15,7 +13,7 @@
     </div>
     <input type="text" id="theme-search" placeholder="🔍 Пошук теми за назвою..." v-model="searchQuery">
     <section id="themes_list">
-      <article v-if="searchQuery == ''">
+      <article v-if="searchQuery === ''">
         <p>Не певен, яку мову обрати?<a href="feedback.html">Напиши нам</a> і ми допоможемо тобі визначитися.</p>
       </article>
       <div  id="no-results-message" v-if="showNoResultsMessage">
@@ -35,23 +33,28 @@
           <li v-for="(task, index) in article.taskTypes" :key="index">{{task}}</li>
         </ul>
       </article>
-      <article v-if="searchQuery == ''">
+      <article v-if="searchQuery === ''">
         <p>
           Визначився із мовою?.<a href="feedback.html">Напиши нам</a> і ми якнайскорше підберемо найзручніший тобі графік.
         </p>
       </article>
     </section>
   </main>
-  <Footer />
 </template>
 <style scoped src="../assets/themes_style.css"></style>
-<script setup lang="ts">
-import Navigation from "../components/Navigation.vue";
-import Footer from "../components/Footer.vue";
+<script setup>
 import Accordion from '../components/Accordion.vue';
-import {ref, computed } from 'vue';
+import {ref, computed, onMounted } from 'vue';
+import { useHead } from '@vueuse/head'
+useHead({
+  title: 'LearniKo -  Навчальні теми'
+})
 const query = ref('');
-
+onMounted(() => window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: 'auto'
+}));
 const themesData = [
   { title: 'Python', description: 'Популярна у Data Science, веб-розробці та автоматизації. Має простий синтаксис, ідеальна для початкового рівня.' },
   { title: 'Java', description: 'Кросплатформенність через JVM. Основна мова корпоративної розробки та розробки Android-додатків. Середній рівень.' },
@@ -67,14 +70,6 @@ const filteredThemes = computed(() => {
   return themesData.filter(t => t.title.toLowerCase().includes(q));
 });
 
-/**
- * Масив об'єктів, що містить повну інформацію про навчальні теми.
- * Використовується для динамічного рендерингу в компоненті Vue.js.
- */
-/**
- * Масив об'єктів, що містить повну інформацію про навчальні теми.
- * Використовується для динамічного рендерингу в компоненті Vue.js.
- */
 const searchQuery = ref("");
 const articles = [
   {
@@ -110,7 +105,7 @@ const articles = [
   },
   {
     title: 'JavaScript',
-    id: 'javascript_theme', // ID оновлено
+    id: 'js_theme',
     imageSrc: 'https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png',
     level: 'Початковий',
     notes: 'Використовується для фронтенд-розробки, створення інтерактивних веб-сторінок.',
@@ -172,31 +167,21 @@ const articles = [
 ];
 
 const searchedThemes = computed(() => {
-  // 1. Приведення пошукового запиту до нижнього регістру та видалення пробілів
   const q = searchQuery.value?.toLowerCase().trim() || '';
-
-  // 2. Якщо запит порожній (неактивний пошук), повертаємо весь масив даних.
   if (!q) {
-    return articles; // Припускаємо, що themesData доступний у scope
+    return articles;
   }
 
-  // 3. Коректна фільтрація: повертаємо ТІЛЬКИ ті теми, заголовок яких ВКЛЮЧАЄ запит.
   return articles.filter((theme) =>
       theme.title.toLowerCase().includes(q)
   );
 });
 
-// 3. Обчислювана властивість для контролю відображення повідомлення
 const showNoResultsMessage = computed(() => {
-  // Повідомлення показуємо, лише якщо:
-  // а) Пошуковий запит НЕ порожній (пошук активний)
   const isSearchActive = !!searchQuery.value?.trim();
-  // б) Кількість знайдених результатів дорівнює 0
   const noResults = searchedThemes.value.length === 0;
 
   return isSearchActive && noResults;
 });
-
-
 
 </script>
