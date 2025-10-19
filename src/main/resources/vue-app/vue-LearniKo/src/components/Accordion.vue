@@ -58,7 +58,6 @@ onMounted(() => {
 
 <style scoped>
 
-
 .accordion-inner-container {
   border-radius: 12px;
   background: #f4f4ff;
@@ -69,7 +68,6 @@ onMounted(() => {
   margin-top: 10px;
 }
 
-/* Заголовок */
 .accordion-header {
   cursor: pointer;
   width: 100%;
@@ -94,7 +92,6 @@ onMounted(() => {
   background: #c4c4ff;
 }
 
-/* Контент */
 .accordion-content {
   overflow: hidden;
   transition: max-height 0.35s ease, opacity 0.35s ease;
@@ -112,49 +109,44 @@ h3 {
 text-align: center;
 }
 
-/* === DARK MODE STYLES FOR ACCORDION (АКОРДЕОН) === */
-
-/* Контейнер акордеона */
 body.dark-mode .accordion-inner-container {
-  background: #3a3a3a; /* Темний фон контейнера, схожий на секції main */
-  border: 1px solid #6688ff; /* Контрастна рамка */
+  background: #3a3a3a;
+  border: 1px solid #6688ff;
 }
 
-/* Заголовок (Неактивний) */
+
 body.dark-mode .accordion-header {
-  background: #444444; /* Темний, але світліший, ніж фон контейнера */
-  color: #f0f0f0; /* Світлий текст */
+  background: #444444;
+  color: #f0f0f0;
 }
 
-/* Заголовок (Наведення) */
+
 body.dark-mode .accordion-header:hover {
-  background: #555555; /* Трохи світліший при наведенні */
+  background: #555555;
 }
 
-/* Заголовок (Активний/Відкритий) */
+
 body.dark-mode .accordion-header.active {
-  background: #315d7e; /* Використовуємо колір ваших темних кнопок для акценту */
+  background: #315d7e;
   color: #ffffff;
 }
 
-/* Контент (Тіло, що відкривається) */
+
 body.dark-mode .accordion-content {
-  /* Тло контенту має бути темним, але не чорним, щоб текст був читабельним */
   background: #2c2c2c;
 }
 
-/* Внутрішній контент (Текст) */
 body.dark-mode .accordion-content-inner {
-  color: #e0e0e0; /* Світлий текст */
+  color: #e0e0e0;
 }
 
-/* Загальний заголовок h3 всередині акордеона */
+
 body.dark-mode .accordion-content-inner h3 {
-  color: #a0c4ff; /* Використовуємо колір акценту для заголовків Dark Mode */
+  color: #a0c4ff;
 }
 
-/* Якщо ви використовуєте іконку або елемент для стрілки: */
+
 body.dark-mode .accordion-header .arrow-icon {
-  color: #f0f0f0; /* Світла іконка */
+  color: #f0f0f0;
 }
 </style>

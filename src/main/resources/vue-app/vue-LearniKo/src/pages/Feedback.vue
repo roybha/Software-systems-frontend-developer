@@ -75,22 +75,16 @@ import { useHead } from '@vueuse/head'
 useHead({
   title: "LearniKo -  Зворотній зв'язок"
 })
-import { ref, onMounted, reactive } from 'vue';
+import { ref, reactive } from 'vue';
 
-// 1. Рефи для доступу до DOM-елементів
 const detailFieldRef = ref(null);
 
-// 2. Реактивний стан для керування видимістю підказки
 const isTooltipVisible = ref(false);
 
-// 3. Реактивний об'єкт для динамічного позиціонування підказки
-// (Позиціонування залишається в JS, оскільки залежить від розмірів DOM-елемента)
 const tooltipPosition = reactive({
   top: '0px',
   left: '0px',
 });
-
-// --- Обробники подій ---
 
 function handleMouseEnter() {
   if (detailFieldRef.value) {
